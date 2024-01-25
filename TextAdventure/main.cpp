@@ -76,7 +76,19 @@ int main() {
         getline(cin,input);
         if (location == 0) {
                 if ((input == "look" || input == "look around") && orientation != "B") {
-                    cout << "You are in a small, dank cell with a rusted iron door.\n";
+                    cout << "You are in a small, dank cell with a rusted iron door. A candle burns in a mounted medieval sconce above the door, your only source of light. It is just out of reach.\n";
+                }
+                else if (input == "smell" || input == "sniff") {
+                    cout << "It smells like feet (Hopefully not yours).\n";
+                }
+                else if (input == "hear" || input == "listen") {
+                    cout << "You listen for guards or other prisoners. You are met with eerie silence.\n";
+                }
+                else if (input == "touch" || input == "feel") {
+                    cout << "You touch everything you can see in front of you. You gain no information from this.\n";
+                }
+                else if (input == "taste" || input == "lick") {
+                    cout << "You... lick everything in front of you? Surely your health will suffer from this. Nasty.\n";
                 }
             
             //Door logic
@@ -124,7 +136,7 @@ int main() {
                 }
                 else if (input == "turn around") {
                     orientation = "B";
-                    cout << "You spot a rusty key on the ground. No way they left you the key to your own cell?\n";
+                    cout << "You spot a rusty key on the ground. There is no way they left you the key to your own cell... right?\n";
                 }
             
             //Take Logic
@@ -135,7 +147,7 @@ int main() {
             
             //Help
                 else if (input == "help") {
-                     cout << "Text adventures (sometimes synonymously referred to as interactive fiction) are text-based games wherein worlds are described in the narrative and the player submits typically simple commands to interact with the worlds. The object of this game is to break out of a mysterious prison, where anything could happen :). Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+                     cout << "Text adventures (sometimes synonymously referred to as interactive fiction) are text-based games wherein worlds are described in the narrative and the player submits typically simple commands to interact with the worlds. The object of this game is to break out of a mysterious prison, where anything could happen :). Type all commands in LOWERCASE. You will never need more than one or two-word commands.\n";
                 }
                 else {
                      cout << "I don't understand that command.\n";
