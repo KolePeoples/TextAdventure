@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include "Monsters.h"
 using namespace std;
 
 struct Object{
@@ -15,10 +16,16 @@ int location;
 };
 
 void Level1(string input) {
+    
+    Monster Sphinx{"Sphinx","What is 2 + 2?","four",1};
     string level1Input = input;
 
     if (level1Input == "look" || level1Input == "Look" || level1Input == "look around" || level1Input == "Look around") {
          cout << "You are in a large room.\n";
+    }
+    
+    else if (level1Input == "speak") {
+        cout << Sphinx.riddle << endl;
     }
     
     else if (level1Input == "help") {

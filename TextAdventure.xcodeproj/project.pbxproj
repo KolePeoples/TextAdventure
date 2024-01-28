@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25CAF6652B66DEBA00DD6E1A /* Monsters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monsters.h; sourceTree = "<group>"; };
 		25D4F4E02B606A2800002B27 /* TextAdventure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TextAdventure; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D4F4E32B606A2800002B27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +42,7 @@
 		25D4F4D72B606A2800002B27 = {
 			isa = PBXGroup;
 			children = (
+				25CAF6652B66DEBA00DD6E1A /* Monsters.h */,
 				25D4F4E22B606A2800002B27 /* TextAdventure */,
 				25D4F4E12B606A2800002B27 /* Products */,
 			);
