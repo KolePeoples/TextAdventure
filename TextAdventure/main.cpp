@@ -17,15 +17,16 @@ int location;
 
 void Level1(string input) {
     
-    Monster Sphinx{"Sphinx","What is 2 + 2?","four",1};
+    Monster Dracula{"Sphinx","What gets bigger the more you take away?","A hole",1};
     string level1Input = input;
 
     if (level1Input == "look" || level1Input == "Look" || level1Input == "look around" || level1Input == "Look around") {
-         cout << "You are in a large room.\n";
+         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\n To your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
     }
     
     else if (level1Input == "speak") {
-        cout << Sphinx.riddle << endl;
+        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into the hole to your left\n";
+        cout << Dracula.riddle << endl;
     }
     
     else if (level1Input == "help") {
