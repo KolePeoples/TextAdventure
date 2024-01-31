@@ -15,6 +15,11 @@ string description;
 int location;
 };
 
+string answerRiddle(string riddle) {
+    
+    return 0;
+}
+
 void Level1(string input) {
     
     Monster Dracula{"Sphinx","What gets bigger the more you take away?","A hole",1};
@@ -25,8 +30,9 @@ void Level1(string input) {
     }
     
     else if (level1Input == "speak") {
-        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into the hole to your left\n";
+        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole\n";
         cout << Dracula.riddle << endl;
+        answerRiddle(Dracula.riddle);
     }
     
     else if (level1Input == "help") {
