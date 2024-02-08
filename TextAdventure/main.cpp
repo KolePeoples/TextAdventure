@@ -15,9 +15,21 @@ string description;
 int location;
 };
 
-string answerRiddle(string riddle) {
+string answerDracRiddle() {
+    string dracAnswer;
+    bool isCorrect = false;
     
-    return 0;
+    cout << "Enter your answer:";
+    getline(cin, dracAnswer);
+    
+    if(dracAnswer == "a hole" || dracAnswer == "hole") {
+        dracAnswer = "That's  correct!";
+    }
+    else {
+        dracAnswer += " is WRONG!";
+    }
+        
+    return dracAnswer;
 }
 
 void Level1(string input) {
@@ -32,7 +44,7 @@ void Level1(string input) {
     else if (level1Input == "speak") {
         cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole\n";
         cout << Dracula.riddle << endl;
-        answerRiddle(Dracula.riddle);
+        cout << answerDracRiddle();
     }
     
     else if (level1Input == "help") {
