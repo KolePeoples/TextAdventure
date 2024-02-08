@@ -15,28 +15,31 @@ string description;
 int location;
 };
 
-string answerDracRiddle() {
+bool answerDracRiddle() {
     string dracAnswer;
-    bool isCorrect = false;
     
     cout << "Enter your answer:";
     getline(cin, dracAnswer);
     
     if(dracAnswer == "a hole" || dracAnswer == "hole") {
-        dracAnswer = "That's  correct!";
+        dracAnswer = "That's  correct!\n";
+        return true;
     }
     else {
-        dracAnswer += " is WRONG!";
+        dracAnswer += " is WRONG!\n";
     }
         
-    return dracAnswer;
+    return false;
 }
 
 void Level1(string input) {
     
+    string answer;
+    
     Monster Dracula{"Sphinx","What gets bigger the more you take away?","A hole",1};
     string level1Input = input;
 
+    
     if (level1Input == "look" || level1Input == "Look" || level1Input == "look around" || level1Input == "Look around") {
          cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\n To your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
     }
@@ -44,7 +47,13 @@ void Level1(string input) {
     else if (level1Input == "speak") {
         cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole\n";
         cout << Dracula.riddle << endl;
-        cout << answerDracRiddle();
+        
+            if(answerDracRiddle() == 1) {
+                cout << "I have unlocked the door for you. You're escape continues.\n";
+            }
+            else {
+                cout << "Now you DIE...\n";
+            }
     }
     
     else if (level1Input == "help") {
