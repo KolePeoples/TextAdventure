@@ -32,16 +32,16 @@ bool answerDracRiddle() {
     return false;
 }
 
-void Level1(string input) {
-    
+int Level1(string input, int location) {
+    int currentLoc = location;
     string answer;
     
-    Monster Dracula{"Sphinx","What gets bigger the more you take away?","A hole",1};
+    Monster Dracula{"Dracula","What gets bigger the more you take away?","A hole",1};
     string level1Input = input;
 
     
     if (level1Input == "look" || level1Input == "Look" || level1Input == "look around" || level1Input == "Look around") {
-         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\n To your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
+         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
     }
     
     else if (level1Input == "speak") {
@@ -50,6 +50,8 @@ void Level1(string input) {
         
             if(answerDracRiddle() == 1) {
                 cout << "I have unlocked the door for you. You're escape continues.\n";
+                currentLoc++;
+                return currentLoc;
             }
             else {
                 cout << "Now you DIE...\n";
@@ -59,10 +61,14 @@ void Level1(string input) {
     else if (level1Input == "help") {
          cout << "Congrats on making it out of the cell! You're on your own from now on, but your freedom is in reach! If you're stuck, try using your 5 senses! Keep your wits about you and good luck! Don't forget: Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
+    return currentLoc;
 }
 
-void Level2() {
-    string level2Input;
+int Level2(string input, int location) {
+    int currentLoc = location;
+    string level2Input = input;
+    
+    
     if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
@@ -70,6 +76,7 @@ void Level2() {
     else if (level2Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
+    return currentLoc;
 }
 
 void Level3() {
@@ -189,7 +196,10 @@ int main() {
                 }
             }
         if (location == 1){ // player is in the cell
-        Level1(input); // call level 1 function
+        location = Level1(input, location);// call level 1 function
+        }
+        else if(location == 2) {
+            location = Level2(input, location);
         }
     }
 }
