@@ -49,7 +49,10 @@ int Level1(string input, int location) {
         cout << Dracula.riddle << endl;
         
             if(answerDracRiddle() == 1) {
-                cout << "I have unlocked the door for you. You're escape continues.\n";
+                cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty\"\n";
+                cout << "You escape the room without a second thought. Eager to avoid becomming Dracula's next meal...\n";
+                cout << "The door lead to a dark hallway. There's no chance you turn around to face Dracula again, so you venture forward into the darknees.\n";
+                cout << "After sometime you spot what looks like a crack of light from under a door. You are confused by what is on the other side.\n";
                 currentLoc++;
                 return currentLoc;
             }
@@ -70,7 +73,7 @@ int Level2(string input, int location) {
     
     
     if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
-         cout << "You are in a small, dank cell with a rusted iron door.\n";
+         cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
     }
     
     else if (level2Input == "help") {
