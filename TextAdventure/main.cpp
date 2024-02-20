@@ -15,28 +15,28 @@ string description;
 int location;
 };
 
-bool answerDracRiddle() {
-    string dracAnswer;
+bool answerRiddle(Monster monster) { //Find a way to make this more flexible
+    string Answer;
+    
+    cout << monster.riddle << endl;
     
     cout << "Enter your answer:";
-    getline(cin, dracAnswer);
+    getline(cin, Answer);
     
-    if(dracAnswer == "a hole" || dracAnswer == "hole") {
-        dracAnswer = "That's  correct!\n";
+    if(Answer == monster.answer) {
         return true;
     }
-    else {
-        dracAnswer += " is WRONG!\n";
-    }
         
-    return false;
+    else {
+        return false;
+    }
 }
 
 int Level1(string input, int location) {
     int currentLoc = location;
     string answer;
     
-    Monster Dracula{"Dracula","What gets bigger the more you take away?","A hole",1};
+    Monster Dracula{"Dracula","What gets bigger the more you take away?","a hole",1};
     string level1Input = input;
 
     
@@ -46,10 +46,9 @@ int Level1(string input, int location) {
     
     else if (level1Input == "speak") {
         cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole\n";
-        cout << Dracula.riddle << endl;
         
-            if(answerDracRiddle() == 1) {
-                cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty\"\n";
+            if(answerRiddle(Dracula) == 1) {
+                cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty!\"\n";
                 cout << "You escape the room without a second thought. Eager to avoid becomming Dracula's next meal...\n";
                 cout << "The door lead to a dark hallway. There's no chance you turn around to face Dracula again,\nso you venture forward into the darknees.\n";
                 cout << "After sometime you spot what looks like a crack of light from under a door.\nYou are confused by what is on the other side.\n";
@@ -72,7 +71,7 @@ int Level2(string input, int location) {
     int currentLoc = location;
     string level2Input = input;
     static bool sphinxArrive = false;
-    Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps. And has a mouth, but never eats?", "a river",2};
+    Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
     if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
@@ -87,16 +86,21 @@ int Level2(string input, int location) {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
         cout << "A massive winged lion with the head of a deformed man materializes across the room.\n";
         sphinxArrive = true;
-        cout << "arrive = " << sphinxArrive << endl;
     }
     
     else if (sphinxArrive == true && (level2Input == "speak" || level2Input == "talk" || level2Input == "apologize")) {
-         cout << "You talk to the sphinx.\n";
+        cout << "\"Solve my riddle or die for your transgresstion.\"\n";
+        
+        if(answerRiddle(Sphinx) == 1) {
+            cout << "Good! Take that flower with you.\n";
+        }
+        else {
+            cout << "Wrong! Now you DIE!\n";
+        }
     }
     
     else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive != true) {
         cout << "There was nobody to talk to.\n";
-        cout << "arrive = " << sphinxArrive << endl;
     }
     
     else if (level2Input == "help") {
@@ -198,10 +202,7 @@ int main() {
                     orientation = "R";
                     cout << "You turn right to face a wall.\n";
                 }
-                else if (input == "turn around") {
-                    orientation = "B";
-                    cout << "You spot a rusty key on the ground. No way they left you the key to your own cell?\n";
-                }
+
                 else if (input == "turn around") {
                     orientation = "B";
                     cout << "You spot a rusty key on the ground. There is no way they left you the key to your own cell... right?\n";
