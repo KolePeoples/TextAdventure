@@ -51,8 +51,8 @@ int Level1(string input, int location) {
             if(answerDracRiddle() == 1) {
                 cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty\"\n";
                 cout << "You escape the room without a second thought. Eager to avoid becomming Dracula's next meal...\n";
-                cout << "The door lead to a dark hallway. There's no chance you turn around to face Dracula again, so you venture forward into the darknees.\n";
-                cout << "After sometime you spot what looks like a crack of light from under a door. You are confused by what is on the other side.\n";
+                cout << "The door lead to a dark hallway. There's no chance you turn around to face Dracula again,\nso you venture forward into the darknees.\n";
+                cout << "After sometime you spot what looks like a crack of light from under a door.\nYou are confused by what is on the other side.\n";
                 currentLoc++;
                 return currentLoc;
             }
@@ -71,16 +71,16 @@ int Level2(string input, int location) {
     
     int currentLoc = location;
     string level2Input = input;
-    bool sphinxArrive = false;
+    static bool sphinxArrive = false;
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps. And has a mouth, but never eats?", "a river",2};
     
     if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
-            cout << "There are several beautiful flowers and other flora about. Stopping to smell the roses doesn't seem like a bad idea at the moment\n";
+            cout << "There are several beautiful flowers and other flora about.\nStopping to smell the roses doesn't seem like a bad idea at the moment\n";
     }
     
     else if (level2Input == "hear" || level2Input == "listen") {
-        cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
+        cout << "It sounded like a garden\n";
     }
     
     else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste" || level2Input == "smell") {
@@ -94,8 +94,9 @@ int Level2(string input, int location) {
          cout << "You talk to the sphinx.\n";
     }
     
-    else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive == false) {
-         cout << "There was nobody to talk to.\n";
+    else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive != true) {
+        cout << "There was nobody to talk to.\n";
+        cout << "arrive = " << sphinxArrive << endl;
     }
     
     else if (level2Input == "help") {
@@ -143,7 +144,7 @@ int main() {
         getline(cin,input);
         if (location == 0) {
                 if ((input == "look" || input == "look around") && orientation != "B") {
-                    cout << "You are in a small, dank cell with a rusted iron door. A candle burns in a mounted medieval sconce above the door, your only source of light. It is just out of reach.\n";
+                    cout << "You are in a small, dank cell with a rusted iron door. A candle burns in a mounted medieval sconce\nabove the door, your only source of light. It is just out of reach.\n";
                 }
                 else if (input == "smell" || input == "sniff") {
                     cout << "It smells like feet (Hopefully not yours).\n";
