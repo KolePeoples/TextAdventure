@@ -83,17 +83,18 @@ int Level2(string input, int location) {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
     }
     
-    else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste") {
+    else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste" || level2Input == "smell") {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
-        cout << "A massive winged lion with the head of a deformed man materializes across the room";
+        cout << "A massive winged lion with the head of a deformed man materializes across the room.\n";
         sphinxArrive = true;
+        cout << "arrive = " << sphinxArrive << endl;
     }
     
-    else if ((level2Input == "speak" || level2Input == "talk" || level2Input == "apologize") && sphinxArrive == true) {
+    else if (sphinxArrive == true && (level2Input == "speak" || level2Input == "talk" || level2Input == "apologize")) {
          cout << "You talk to the sphinx.\n";
     }
     
-    else if ((level2Input == "speak" || level2Input == "talk" || level2Input == "apologize") && sphinxArrive == false) {
+    else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive == false) {
          cout << "There was nobody to talk to.\n";
     }
     
