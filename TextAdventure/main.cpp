@@ -68,12 +68,24 @@ int Level1(string input, int location) {
 }
 
 int Level2(string input, int location) {
+    
     int currentLoc = location;
     string level2Input = input;
+    Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps. And has a mouth, but never eats?", "a river",2};
     
     
     if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
-         cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
+            cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
+            cout << "There are several beautiful flowers and other flora about. Stopping to smell the roses doesn't seem like a bad idea at the moment";
+    }
+    
+    else if (level2Input == "hear" || level2Input == "listen") {
+        cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
+    }
+    
+    else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste") {
+        cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
+        cout << "A massive winged lion with the head of a deformed man materializes across the room";
     }
     
     else if (level2Input == "help") {
