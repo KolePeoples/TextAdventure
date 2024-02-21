@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <cctype>
 #include "Monsters.h"
 using namespace std;
 
@@ -57,6 +58,7 @@ int Level1(string input, int location) {
             }
             else {
                 cout << "Now you DIE...\n";
+                return 0;
             }
     }
     
@@ -93,9 +95,12 @@ int Level2(string input, int location) {
         
         if(answerRiddle(Sphinx) == 1) {
             cout << "Good! Take that flower with you.\n";
+            currentLoc++;
+            return currentLoc;
         }
         else {
             cout << "Wrong! Now you DIE!\n";
+            return 0;
         }
     }
     
@@ -109,15 +114,26 @@ int Level2(string input, int location) {
     return currentLoc;
 }
 
-void Level3() {
-    string input;
+int Level3(string input, int location) {
+    
+    string level_3_Input = input;
+    int currentLoc = location;
+    Monster Troll{};
+    
     if (input == "look" || input == "Look" || input == "look around" || input == "Look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
+    
+    return currentLoc;
 }
 
-void Level4() {
-    string input;
+void Level4(string input, int location) {
+    
+    string level_4_input = input;
+    bool hasFlower = true;
+    int currentLoc = location;
+    Monster Leshen{};
+    
     if (input == "look" || input == "Look" || input == "look around" || input == "Look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
@@ -145,8 +161,9 @@ int main() {
     cout << "You wake up in a cell with no idea how you got there.\n";
     
     while(gameRunning) {
-        getline(cin,input);
+        getline(cin,input); // Try to make all input lowercase
         if (location == 0) {
+            
                 if ((input == "look" || input == "look around") && orientation != "B") {
                     cout << "You are in a small, dank cell with a rusted iron door. A candle burns in a mounted medieval sconce\nabove the door, your only source of light. It is just out of reach.\n";
                 }
@@ -227,6 +244,9 @@ int main() {
         }
         else if(location == 2) {
             location = Level2(input, location);
+        }
+        else if(location == 3) {
+            location = Level3(input, location);
         }
     }
 }
