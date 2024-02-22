@@ -118,10 +118,29 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
-    Monster Troll{"Troll","Me stronger than steel, but me full of holes","a chain",3};
+    int lickCount = 0;
+    Monster Troll{"Troll","Me stronger than steel, but me full of holes. What is it?","a chain",3};
     
-    if (input == "look" || input == "look around") {
-         cout << "You are in a small, dank cell with a rusted iron door.\n";
+    if (level_3_Input == "look" || level_3_Input == "look around") {
+         cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
+    }
+    
+    else if (level_3_Input == "smell" || level_3_Input == "sniff") {
+         cout << "It smells sour and musty. Like someone spoiled milk and then ran a marathon with it in their shoes.\n";
+    }
+    
+    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 0) {
+         cout << "You really shouldn't...\n";
+        lickCount++;
+    }
+    
+    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 1) {
+         cout << "You... Lick everything you can get your nasty tongue on... Sicko\n";
+        lickCount++;
+    }
+    
+    else if (level_3_Input == "help") {
+         cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
     
     return currentLoc;
@@ -132,7 +151,7 @@ int Level4(string input, int location) {
     string level_4_input = input;
     bool hasFlower = true;
     int currentLoc = location;
-    Monster Leshen{"Leshen","","",4};
+    Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
     
     if (input == "look" || input == "look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
