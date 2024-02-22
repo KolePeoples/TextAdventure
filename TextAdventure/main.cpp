@@ -41,12 +41,12 @@ int Level1(string input, int location) {
     string level1Input = input;
 
     
-    if (level1Input == "look" || level1Input == "Look" || level1Input == "look around" || level1Input == "Look around") {
+    if (level1Input == "look" || level1Input == "look around") {
          cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
     }
     
     else if (level1Input == "speak") {
-        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole\n";
+        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole!\n";
         
             if(answerRiddle(Dracula) == 1) {
                 cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty!\"\n";
@@ -75,13 +75,13 @@ int Level2(string input, int location) {
     static bool sphinxArrive = false;
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
-    if (level2Input == "look" || level2Input == "Look" || level2Input == "look around" || level2Input == "Look around") {
+    if (level2Input == "look" || level2Input == "look around") {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
             cout << "There are several beautiful flowers and other flora about.\nStopping to smell the roses doesn't seem like a bad idea at the moment\n";
     }
     
     else if (level2Input == "hear" || level2Input == "listen") {
-        cout << "It sounded like a garden\n";
+        cout << "It sounded... like a garden\n";
     }
     
     else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste" || level2Input == "smell") {
@@ -118,32 +118,39 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
-    Monster Troll{};
+    Monster Troll{"Troll","Me stronger than steel, but me full of holes","a chain",3};
     
-    if (input == "look" || input == "Look" || input == "look around" || input == "Look around") {
+    if (input == "look" || input == "look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
     
     return currentLoc;
 }
 
-void Level4(string input, int location) {
+int Level4(string input, int location) {
     
     string level_4_input = input;
     bool hasFlower = true;
     int currentLoc = location;
-    Monster Leshen{};
+    Monster Leshen{"Leshen","","",4};
     
-    if (input == "look" || input == "Look" || input == "look around" || input == "Look around") {
+    if (input == "look" || input == "look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
+    
+    return currentLoc;
 }
 
-void Level5() {
-    string input;
-    if (input == "look" || input == "Look" || input == "look around" || input == "Look around") {
+int Level5(string input, int location) {
+    
+    string level_5_input = input;
+    int currentLoc = location;
+    
+    if (input == "look" || input == "look around") {
          cout << "You are in a small, dank cell with a rusted iron door.\n";
     }
+    
+    return currentLoc;
 }
 
 int main() {
@@ -161,7 +168,12 @@ int main() {
     cout << "You wake up in a cell with no idea how you got there.\n";
     
     while(gameRunning) {
-        getline(cin,input); // Try to make all input lowercase
+        getline(cin,input);
+        
+        for (char &c : input) { //Makes input lowercase
+            c = tolower(c);
+        }
+        
         if (location == 0) {
             
                 if ((input == "look" || input == "look around") && orientation != "B") {
@@ -197,6 +209,7 @@ int main() {
                 }
                else if (input == "use key" && hasKey == true) {
                    isLocked = false;
+                   orientation = "F";
                    cout << "The door unlocked!\n";
                 }
             
@@ -233,20 +246,26 @@ int main() {
             
             //Help
                 else if (input == "help") {
-                     cout << "Text adventures (sometimes synonymously referred to as interactive fiction) are text-based games wherein worlds are described in the narrative and the player submits typically simple commands to interact with the worlds. The object of this game is to break out of a mysterious prison, where anything could happen :). Type all commands in LOWERCASE. You will never need more than one or two-word commands.\n";
+                     cout << "Text adventures (sometimes synonymously referred to as interactive fiction) are text-based games\nwherein worlds are described in the narrative and the player submits typically simple commands to\ninteract with the worlds. The object of this game is to break out of a mysterious prison, where\nanything could happen :). Type all commands in LOWERCASE. You will never need more than one or\ntwo-word commands.\n";
                 }
                 else {
                      cout << "I don't understand that command.\n";
                 }
             }
-        if (location == 1){ // player is in the cell
-        location = Level1(input, location);// call level 1 function
+        else if (location == 1){ // player is in the out of the cell
+            location = Level1(input, location);// call level 1 function
         }
         else if(location == 2) {
             location = Level2(input, location);
         }
         else if(location == 3) {
             location = Level3(input, location);
+        }
+        else if(location == 4) {
+            location = Level4(input, location);
+        }
+        else if(location == 5) {
+            location = Level5(input, location);
         }
     }
 }
