@@ -119,6 +119,8 @@ int Level3(string input, int location) {
     string level_3_Input = input;
     int currentLoc = location;
     int lickCount = 0;
+    bool hasDisease = false;
+    
     Monster Troll{"Troll","Me stronger than steel, but me full of holes. What is it?","a chain",3};
     
     if (level_3_Input == "look" || level_3_Input == "look around") {
@@ -136,6 +138,11 @@ int Level3(string input, int location) {
     
     else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 1) {
          cout << "You... Lick everything you can get your nasty tongue on... Sicko\n";
+        lickCount++;
+    }
+    
+    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount > 1) {
+         cout << "YWhy are you still licking things!? Whatever. You have hepatitus now.\n";
         lickCount++;
     }
     
