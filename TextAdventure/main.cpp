@@ -73,6 +73,8 @@ int Level2(string input, int location) {
     int currentLoc = location;
     string level2Input = input;
     static bool sphinxArrive = false;
+    static bool eyesOpen = true;
+    
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
     if (level2Input == "look" || level2Input == "look around") {
@@ -95,6 +97,7 @@ int Level2(string input, int location) {
         
         if(answerRiddle(Sphinx) == 1) {
             cout << "Good! Take that flower with you.\n";
+            cout << "Now close your eyes.\n";
             currentLoc++;
             return currentLoc;
         }
@@ -102,6 +105,11 @@ int Level2(string input, int location) {
             cout << "Wrong! Now you DIE!\n";
             return 0;
         }
+    }
+    
+    else if (level2Input == "close eyes") {
+        //Here is where you do the closed eyes logic to take them to level 4
+        cout << "nothing";
     }
     
     else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive != true) {
@@ -125,6 +133,11 @@ int Level3(string input, int location) {
     
     if (level_3_Input == "look" || level_3_Input == "look around") {
          cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
+    }
+    
+    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && lickCount > 1) {
+         cout << "YWhy are you still licking things!? Whatever. You have hepatitus now.\n";
+        lickCount++;
     }
     
     else if (level_3_Input == "smell" || level_3_Input == "sniff") {
