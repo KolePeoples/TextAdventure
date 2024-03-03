@@ -73,7 +73,7 @@ int Level2(string input, int location) {
     int currentLoc = location;
     string level2Input = input;
     static bool sphinxArrive = false;
-    static bool eyesOpen = true;
+    static bool solved = false;
     
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
@@ -98,8 +98,7 @@ int Level2(string input, int location) {
         if(answerRiddle(Sphinx) == 1) {
             cout << "Good! Take that flower with you.\n";
             cout << "Now close your eyes.\n";
-            currentLoc++;
-            return currentLoc;
+            solved = true;
         }
         else {
             cout << "Wrong! Now you DIE!\n";
@@ -108,8 +107,13 @@ int Level2(string input, int location) {
     }
     
     else if (level2Input == "close eyes") {
-        //Here is where you do the closed eyes logic to take them to level 4
         cout << "nothing";
+    }
+    
+    else if (level2Input == "close eyes" && solved == true) {
+        cout << "You closed your eyes.\n";
+        currentLoc++;
+        return currentLoc;
     }
     
     else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive != true) {
