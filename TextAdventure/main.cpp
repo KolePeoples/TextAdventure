@@ -108,6 +108,7 @@ int Level2(string input, int location) {
     
     else if ((level2Input == "close eyes") && solved == true) {
         cout << "You closed your eyes.\n";
+        cout << "Upon opening your eyes, you realize you are in a different location.\n";
         currentLoc++;
         return currentLoc;
     }
@@ -126,6 +127,7 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
+    int depth = 0;
     int lickCount = 0;
     bool hasDisease = false;
     
@@ -135,9 +137,13 @@ int Level3(string input, int location) {
          cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && lickCount > 1) {
-         cout << "YWhy are you still licking things!? Whatever. You have hepatitus now.\n";
-        lickCount++;
+    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
+         cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+        depth++;
+    }
+    
+    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
+         cout << "The light from the crystals is fading and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall.";
     }
     
     else if (level_3_Input == "smell" || level_3_Input == "sniff") {
