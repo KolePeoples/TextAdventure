@@ -106,11 +106,7 @@ int Level2(string input, int location) {
         }
     }
     
-    else if (level2Input == "close eyes") {
-        cout << "nothing";
-    }
-    
-    else if (level2Input == "close eyes" && solved == true) {
+    else if ((level2Input == "close eyes") && solved == true) {
         cout << "You closed your eyes.\n";
         currentLoc++;
         return currentLoc;
