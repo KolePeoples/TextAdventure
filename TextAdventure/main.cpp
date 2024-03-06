@@ -16,7 +16,7 @@ string description;
 int location;
 };
 
-bool answerRiddle(Monster monster) { //Find a way to make this more flexible
+bool answerRiddle(Monster monster) {
     string Answer;
     
     cout << monster.riddle << endl;
@@ -36,16 +36,32 @@ bool answerRiddle(Monster monster) { //Find a way to make this more flexible
 int Level1(string input, int location) {
     int currentLoc = location;
     string answer;
-    
+    string level_1_Input = input;
     Monster Dracula{"Dracula","What gets bigger the more you take away?","a hole",1};
-    string level1Input = input;
-
     
-    if (level1Input == "look" || level1Input == "look around") {
-         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is an unassuming man.\n";
+    
+    //Level 1 Discovery Logic
+    if (level_1_Input == "look" || level_1_Input == "look around") {
+         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is a tall, thin, pale, white-haired man with a long mustache.\n";
     }
     
-    else if (level1Input == "speak") {
+    else if (level_1_Input == "hear" || level_1_Input == "listen") {
+        cout << "You hear the faint breathing of another living being.\n";
+    }
+    
+    else if (level_1_Input == "smell" || level_1_Input == "sniff") {
+         cout << "You catch a faint metallic smell.\n";
+    }
+    
+    else if (input == "touch" || input == "feel") {
+        cout << "There wasn't anything in reach.\n";
+    }
+    
+    else if (input == "taste" || input == "lick") {
+        cout << "There is nothing to taste or lick.\n";
+    }
+    
+    else if (level_1_Input == "speak") {
         cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole!\n";
         
             if(answerRiddle(Dracula) == 1) {
@@ -62,7 +78,8 @@ int Level1(string input, int location) {
             }
     }
     
-    else if (level1Input == "help") {
+    //Help
+    else if (level_1_Input == "help") {
          cout << "Congrats on making it out of the cell! You're on your own from now on, but your freedom is in reach! If you're stuck, try using your 5 senses! Keep your wits about you and good luck! Don't forget: Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
     return currentLoc;
@@ -74,9 +91,9 @@ int Level2(string input, int location) {
     string level2Input = input;
     static bool sphinxArrive = false;
     static bool solved = false;
-    
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
+    //Discovery Logic
     if (level2Input == "look" || level2Input == "look around") {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
             cout << "There are several beautiful flowers and other flora about.\nStopping to smell the roses doesn't seem like a bad idea at the moment\n";
@@ -137,12 +154,12 @@ int Level3(string input, int location) {
          cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
+    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
          cout << "You venture deeper into the cave, the smell is getting stronger...\n";
         depth++;
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
+    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
          cout << "The light from the crystals is fading and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall.";
     }
     
@@ -156,12 +173,18 @@ int Level3(string input, int location) {
     }
     
     else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 1) {
-         cout << "You... Lick everything you can get your nasty tongue on... Sicko\n";
+         cout << "You... Lick and taste everything you can get your nasty tongue on... Sicko\n";
         lickCount++;
     }
     
-    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount > 1) {
-         cout << "YWhy are you still licking things!? Whatever. You have hepatitus now.\n";
+    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 2) {
+         cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
+        hasDisease = true;
+        lickCount++;
+    }
+    
+    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount > 2) {
+         cout << "You have " << lickCount <<" stacks of hepatitus.\n";
         lickCount++;
     }
     
