@@ -152,12 +152,13 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
-    int depth = 0;
+    static int depth = 0;
     int lickCount = 0;
     bool hasDisease = false;
     
     Monster Troll{"Troll","Me stronger than steel, but me full of holes. What is it?","a chain",3};
     
+    //Exploration Logic
     if (level_3_Input == "look" || level_3_Input == "look around") {
          cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
     }
@@ -191,14 +192,22 @@ int Level3(string input, int location) {
         lickCount++;
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
+    //Cave Expolration Logic
+    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth < 1) {
         cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+        depth = 1;
         cout << "Depth is: " << depth << endl;
-        depth++;
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
-         cout << "The light from the crystals is fading and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall.";
+    else if ((level_3_Input == "look" || level_3_Input == "look around") && depth == 1) {
+         cout << "The light from the crystals is fading.";
+        
+        
+        /*
+         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
+         */
+        
+        
     }
     
     else if (level_3_Input == "help") {
