@@ -19,7 +19,7 @@ int location;
 bool answerRiddle(Monster monster) {
     string Answer;
     
-    cout << monster.riddle << endl;
+    cout << "\"" << monster.riddle << "\"" << endl;
     
     cout << "Enter your answer:";
     getline(cin, Answer);
@@ -42,7 +42,7 @@ int Level1(string input, int location) {
     
     //Level 1 Discovery Logic
     if (level_1_Input == "look" || level_1_Input == "look around") {
-         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is a tall, thin, pale, white-haired man with a long mustache.\n";
+         cout << "You are in a spacious room. To your left is a massive hole, you cannot tell how deep it is.\nTo your right is a door. Probably the exit. Between you and this door is a tall, thin, pale,\nwhite-haired man with a long mustache.\n";
     }
     
     else if (level_1_Input == "hear" || level_1_Input == "listen") {
@@ -62,7 +62,7 @@ int Level1(string input, int location) {
     }
     
     else if (level_1_Input == "speak") {
-        cout << "Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole!\n";
+        cout << "\"Hello. I am Vlad Tepes. Answer my riddle or be thrown into that hole!\"\n";
         
             if(answerRiddle(Dracula) == 1) {
                 cout << "\"I have unlocked the door for you. Leave quickly before I become thirsty!\"\n";
@@ -73,7 +73,7 @@ int Level1(string input, int location) {
                 return currentLoc;
             }
             else {
-                cout << "Now you DIE...\n";
+                cout << "\"Now you DIE...\"\n";
                 return 0;
             }
     }
@@ -82,60 +82,68 @@ int Level1(string input, int location) {
     else if (level_1_Input == "help") {
          cout << "Congrats on making it out of the cell! You're on your own from now on, but your freedom is in reach! If you're stuck, try using your 5 senses! Keep your wits about you and good luck! Don't forget: Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
+    
+    else {
+         cout << "I don't understand that command.\n";
+    }
     return currentLoc;
 }
 
 int Level2(string input, int location) {
     
     int currentLoc = location;
-    string level2Input = input;
+    string level_2_Input = input;
     static bool sphinxArrive = false;
     static bool solved = false;
     Monster Sphinx {"Sphinx", "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps.\nAnd has a mouth, but never eats?", "a river",2};
     
     //Discovery Logic
-    if (level2Input == "look" || level2Input == "look around") {
+    if (level_2_Input == "look" || level_2_Input == "look around") {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
             cout << "There are several beautiful flowers and other flora about.\nStopping to smell the roses doesn't seem like a bad idea at the moment\n";
     }
     
-    else if (level2Input == "hear" || level2Input == "listen") {
+    else if (level_2_Input == "hear" || level_2_Input == "listen") {
         cout << "It sounded... like a garden\n";
     }
     
-    else if (level2Input == "take" || level2Input == "pick" || level2Input == "pick flower" || level2Input == "smell plant" || level2Input == "smell flower" || level2Input == "lick" || level2Input == "taste" || level2Input == "smell") {
+    else if (level_2_Input == "take" || level_2_Input == "pick" || level_2_Input == "pick flower" || level_2_Input == "smell plant" || level_2_Input == "smell flower" || level_2_Input == "lick" || level_2_Input == "taste" || level_2_Input == "smell") {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
         cout << "A massive winged lion with the head of a deformed man materializes across the room.\n";
         sphinxArrive = true;
     }
     
-    else if (sphinxArrive == true && (level2Input == "speak" || level2Input == "talk" || level2Input == "apologize")) {
+    else if (sphinxArrive == true && (level_2_Input == "speak" || level_2_Input == "talk" || level_2_Input == "apologize")) {
         cout << "\"Solve my riddle or die for your transgresstion.\"\n";
         
         if(answerRiddle(Sphinx) == 1) {
-            cout << "Good! Take that flower with you.\n";
-            cout << "Now close your eyes.\n";
+            cout << "\"Good! Take that flower with you. I don't want it here now that you've contaminated it.\"\n";
+            cout << "\"Now close your eyes.\"\n";
             solved = true;
         }
         else {
-            cout << "Wrong! Now you DIE!\n";
+            cout << "\"Wrong! Now you DIE!\"\n";
             return 0;
         }
     }
     
-    else if ((level2Input == "close eyes") && solved == true) {
+    else if ((level_2_Input == "close eyes") && solved == true) {
         cout << "You closed your eyes.\n";
-        cout << "Upon opening your eyes, you realize you are in a different location.\n";
+        cout << "Upon opening your eyes again, you realize you are in a different location.\n";
         currentLoc++;
         return currentLoc;
     }
     
-    else if ((level2Input == "speak" || level2Input == "talk") && sphinxArrive != true) {
+    else if ((level_2_Input == "speak" || level_2_Input == "talk") && sphinxArrive != true) {
         cout << "There was nobody to talk to.\n";
     }
     
-    else if (level2Input == "help") {
+    else if (level_2_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+    }
+    
+    else {
+         cout << "I don't understand that command.\n";
     }
     return currentLoc;
 }
@@ -154,13 +162,8 @@ int Level3(string input, int location) {
          cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
     }
     
-    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
-         cout << "You venture deeper into the cave, the smell is getting stronger...\n";
-        depth++;
-    }
-    
-    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
-         cout << "The light from the crystals is fading and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall.";
+    else if (level_3_Input == "hear" || level_3_Input == "listen") {
+        cout << "It sounded... like a garden\n"; //Change this
     }
     
     else if (level_3_Input == "smell" || level_3_Input == "sniff") {
@@ -188,8 +191,22 @@ int Level3(string input, int location) {
         lickCount++;
     }
     
+    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 0) {
+        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+        cout << "Depth is: " << depth << endl;
+        depth++;
+    }
+    
+    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth == 1) {
+         cout << "The light from the crystals is fading and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall.";
+    }
+    
     else if (level_3_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+    }
+    
+    else {
+         cout << "I don't understand that command.\n";
     }
     
     return currentLoc;
@@ -303,7 +320,7 @@ int main() {
 
                 else if (input == "turn around") {
                     orientation = "B";
-                    cout << "You spot a rusty key on the ground. There is no way they left you the key to your own cell... right?\n";
+                    cout << "You spot a rusty key on the ground. There's no way they left you the key to your own cell... right?\n";
                 }
             
             //Take Logic
