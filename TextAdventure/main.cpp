@@ -152,8 +152,8 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
-    //static int depth = 0;
-    int lickCount = 0;
+    static int depth = 0;
+    static int lickCount = 0;
     bool hasDisease = false;
     
     Monster Troll{"Troll","Me stronger than steel, but me full of holes. What is it?","a chain",3};
@@ -171,26 +171,33 @@ int Level3(string input, int location) {
          cout << "It smells sour and musty. Like someone spoiled milk and then ran a marathon with it in their shoes.\n";
     }
     
-    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 0) {
-         cout << "You really shouldn't...\n";
-        lickCount++;
-        cout << lickCount << endl;
-    }
-    
-    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 1) {
-         cout << "You... Lick and taste everything you can get your nasty tongue on... Sicko\n";
-        lickCount++;
-    }
-    
-    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 2) {
-         cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
-        hasDisease = true;
-        lickCount++;
-    }
-    
-    else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount > 2) {
-         cout << "You have " << lickCount <<" stacks of hepatitus.\n";
-        lickCount++;
+    else if (level_3_Input == "lick" || level_3_Input == "taste") {
+        
+        if (lickCount == 0) {
+            cout << "You really shouldn't...\n";
+            lickCount++;
+            cout << lickCount << endl;
+        }
+        
+        else if (lickCount == 1) {
+            cout << "You... Lick and taste everything you can get your nasty tongue on... Sicko\n";
+            lickCount++;
+            cout << lickCount << endl;
+        }
+        
+        else if (lickCount == 2) {
+            cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
+            hasDisease = true;
+            lickCount++;
+            cout << lickCount << endl;
+        }
+        
+        else if (lickCount > 2) {
+            lickCount++;
+            cout << "You have " << lickCount <<" stacks of hepatitus.\n";
+            cout << lickCount << endl;
+        }
+        
     }
     
 //    //Cave Expolration Logic
