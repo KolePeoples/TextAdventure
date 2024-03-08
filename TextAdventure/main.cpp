@@ -156,15 +156,33 @@ int Level3(string input, int location) {
     static int lickCount = 0;
     bool hasDisease = false;
     
-    Monster Troll{"Troll","Me stronger than steel, but me full of holes. What is it?","a chain",3};
+    Monster Troll{"Troll","Me stronger than steel, but me full of holes. What it is?","a chain",3};
     
     //Exploration Logic
     if (level_3_Input == "look" || level_3_Input == "look around") {
-         cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
+        
+        if (depth == 0) {
+            cout << "You're in a humid cave. Dark red crystals illuminate your surrondings with an eerie crimson glow.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "The crimson light from the crystals has become a distant glow behind you.\n.It's much harder to see.\nNot like there is much to see in a cave anyway.";
+        }
+        
+        else if (depth == 2) {
+            cout << "You can't see your own hand in front of you face.\nYou'll have to rely on other senses.";
+        }
     }
     
     else if (level_3_Input == "hear" || level_3_Input == "listen") {
-        cout << "It sounded... like a garden\n"; //Change this
+        
+        if (depth == 0) {
+            cout << "The silence is deafening. You must be deep underground.\nOccassionally, you hear water dripping from stalactites.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "There is a faint grumling coming frm deeper in the cave...\n";
+        }
     }
     
     else if (level_3_Input == "smell" || level_3_Input == "sniff") {
@@ -200,23 +218,16 @@ int Level3(string input, int location) {
         
     }
     
-//    //Cave Expolration Logic
-//    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth < 1) {
-//        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
-//        depth = 1;
-//        cout << "Depth is: " << depth << endl;
-//    }
-//
-//    else if ((level_3_Input == "look" || level_3_Input == "look around") && depth == 1) {
-//         cout << "The light from the crystals is fading.";
-//
-//
-//        /*
-//         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
-//         */
-//
-//
-//    }
+   //Cave Expolration Logic
+    else if (level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") {
+        depth++;
+        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+    }
+         
+
+        /*
+         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
+         */
     
     else if (level_3_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
