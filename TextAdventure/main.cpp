@@ -152,7 +152,7 @@ int Level3(string input, int location) {
     
     string level_3_Input = input;
     int currentLoc = location;
-    static int depth = 0;
+    //static int depth = 0;
     int lickCount = 0;
     bool hasDisease = false;
     
@@ -174,6 +174,7 @@ int Level3(string input, int location) {
     else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 0) {
          cout << "You really shouldn't...\n";
         lickCount++;
+        cout << lickCount << endl;
     }
     
     else if ((level_3_Input == "lick" || level_3_Input == "taste") && lickCount == 1) {
@@ -192,23 +193,23 @@ int Level3(string input, int location) {
         lickCount++;
     }
     
-    //Cave Expolration Logic
-    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth < 1) {
-        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
-        depth = 1;
-        cout << "Depth is: " << depth << endl;
-    }
-    
-    else if ((level_3_Input == "look" || level_3_Input == "look around") && depth == 1) {
-         cout << "The light from the crystals is fading.";
-        
-        
-        /*
-         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
-         */
-        
-        
-    }
+//    //Cave Expolration Logic
+//    else if ((level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") && depth < 1) {
+//        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+//        depth = 1;
+//        cout << "Depth is: " << depth << endl;
+//    }
+//
+//    else if ((level_3_Input == "look" || level_3_Input == "look around") && depth == 1) {
+//         cout << "The light from the crystals is fading.";
+//
+//
+//        /*
+//         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
+//         */
+//
+//
+//    }
     
     else if (level_3_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
