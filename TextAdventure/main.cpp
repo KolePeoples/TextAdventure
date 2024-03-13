@@ -80,7 +80,7 @@ int Level1(string input, int location) {
     
     //Help
     else if (level_1_Input == "help") {
-         cout << "Congrats on making it out of the cell! You're on your own from now on, but your freedom is in reach! If you're stuck, try using your 5 senses! Keep your wits about you and good luck! Don't forget: Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+         cout << "Congrats on making it out of the cell!\nYou're on your own from now on, but your freedom is in reach!\nIf you're stuck, try using your 5 senses!\nKeep your wits about you and good luck!\nDon't forget: Type all commands in LOWERCASE.\nYou will never need more than one or two word commands.\n";
     }
     
     else {
@@ -166,11 +166,11 @@ int Level3(string input, int location) {
         }
         
         else if (depth == 1) {
-            cout << "The crimson light from the crystals has become a distant glow behind you.\n.It's much harder to see.\nNot like there is much to see in a cave anyway.";
+            cout << "The crimson light from the crystals has become a distant glow behind you.\nIt's much harder to see.\nNot like there is much to see in a cave anyway.\n";
         }
         
         else if (depth == 2) {
-            cout << "You can't see your own hand in front of you face.\nYou'll have to rely on other senses.";
+            cout << "You can't see your own hand in front of you face.\nYou'll have to rely on other senses.\n";
         }
     }
     
@@ -183,10 +183,25 @@ int Level3(string input, int location) {
         else if (depth == 1) {
             cout << "There is a faint grumling coming frm deeper in the cave...\n";
         }
+        
+        else if (depth == 2) {
+            cout << "It almost sounds like someone is snoring.\n";
+        }
     }
     
     else if (level_3_Input == "smell" || level_3_Input == "sniff") {
-         cout << "It smells sour and musty. Like someone spoiled milk and then ran a marathon with it in their shoes.\n";
+        
+        if (depth == 0) {
+            cout << "It smells sour and musty. Like someone spoiled milk and then ran a marathon with it in their shoes.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "The smell is getting stronger...\n";
+        }
+        
+        else if (depth == 2) {
+            cout << "Your nose is burning, the source of the smell is right in front of you.\n";
+        }
     }
     
     else if (level_3_Input == "lick" || level_3_Input == "taste") {
@@ -215,6 +230,14 @@ int Level3(string input, int location) {
             cout << "You have " << lickCount <<" stacks of hepatitus.\n";
             cout << lickCount << endl;
         }
+        
+    }
+    
+    else if (level_3_Input == "talk" || level_3_Input == "speak") {
+        
+    }
+    
+    else if (level_3_Input == "touch" || level_3_Input == "poke" || level_3_Input == "feel") {
         
     }
     
