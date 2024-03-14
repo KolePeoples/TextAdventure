@@ -250,6 +250,17 @@ int Level3(string input, int location) {
     
     else if (level_3_Input == "touch" || level_3_Input == "poke" || level_3_Input == "feel") {
         
+        if (depth == 0) {
+            cout << "The cave walls are mosit and rough. The light emitting crytals are smooth and dry.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "The walls don't feel any different. The crystals are behind you and thus out of reach.\n";
+        }
+        
+        else if (depth == 2) {
+            cout << "You touch the wall impeding your path. It has some give, but it's too heavy to move ";
+        }
     }
     
    //Cave Expolration Logic
@@ -265,15 +276,10 @@ int Level3(string input, int location) {
         }
         
         else if (depth > 2) {
-            cout << "You can't find away around the spongy wall.";
+            cout << "You can't find a way around the spongy wall.\n";
         }
         
     }
-         
-
-        /*
-         and the smell is overpowering now. Your nose feels like it's about to fall off.\nJust when you cant take anymore, you bump into a spongy wall
-         */
     
     else if (level_3_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
@@ -290,6 +296,7 @@ int Level4(string input, int location) {
     
     string level_4_input = input;
     bool hasFlower = true;
+    bool isSick = true;
     int currentLoc = location;
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
     
@@ -301,6 +308,21 @@ int Level4(string input, int location) {
 }
 
 int Level5(string input, int location) {
+    
+    string level_4_input = input;
+    bool hasFlower = true;
+    bool isSick = true;
+    int currentLoc = location;
+    Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
+    
+    if (input == "look" || input == "look around") {
+         cout << "You are in a small, dank cell with a rusted iron door.\n";
+    }
+    
+    return currentLoc;
+}
+
+int Level6(string input, int location) {
     
     string level_5_input = input;
     int currentLoc = location;
@@ -318,6 +340,7 @@ int main() {
     bool  gameRunning = true;
     bool hasKey = false;
     bool isLocked = true;
+    bool isSick = false;
     string input;
     string orientation = "F"; //Can be F, B, L or R
     Object Lvl_0_key = {"key", "a small iron key.", 0};
