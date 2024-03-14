@@ -235,6 +235,17 @@ int Level3(string input, int location) {
     
     else if (level_3_Input == "talk" || level_3_Input == "speak") {
         
+        if (depth == 0) {
+            cout << "There was nobody to talk to.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "There was (still) nobody to talk to.\n";
+        }
+        
+        else if (depth == 2) {
+            cout << "The sound stopped. You wait a few seconds and it starts again.\nMaybe you should talk louder?\n";
+        }
     }
     
     else if (level_3_Input == "touch" || level_3_Input == "poke" || level_3_Input == "feel") {
