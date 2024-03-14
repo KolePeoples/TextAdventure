@@ -255,7 +255,19 @@ int Level3(string input, int location) {
    //Cave Expolration Logic
     else if (level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") {
         depth++;
-        cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+        
+        if (depth == 1) {
+            cout << "You venture deeper into the cave, the smell is getting stronger...\n";
+        }
+        
+        else if (depth == 2) {
+            cout << "Exploring even deeper into the cave, your senses are assualted by new information.\nYou bump into something large and spongy.\nWhatever this is, its blocking your path.\n";
+        }
+        
+        else if (depth > 2) {
+            cout << "You can't find away around the spongy wall.";
+        }
+        
     }
          
 
