@@ -281,6 +281,7 @@ int Level3(string input, int location) {
         
     }
     
+    //Help
     else if (level_3_Input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
@@ -292,6 +293,7 @@ int Level3(string input, int location) {
     return currentLoc;
 }
 
+//Level for if the player is not sick
 int Level4(string input, int location) {
     
     string level_4_input = input;
@@ -307,6 +309,7 @@ int Level4(string input, int location) {
     return currentLoc;
 }
 
+//Level for if player is sick
 int Level5(string input, int location) {
     
     string level_4_input = input;
@@ -448,6 +451,9 @@ int main() {
         }
         else if(location == 5) {
             location = Level5(input, location);
+        }
+        else if(location == 6) {
+            location = Level6(input, location);
         }
     }
 }
