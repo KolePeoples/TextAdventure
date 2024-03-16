@@ -155,6 +155,7 @@ int Level3(string input, int location) {
     static int depth = 0;
     static int lickCount = 0;
     bool hasDisease = false;
+    bool isAwake = false;
     
     Monster Troll{"Troll","Me stronger than steel, but me full of holes. What it is?","a chain",3};
     
@@ -240,11 +241,28 @@ int Level3(string input, int location) {
         }
         
         else if (depth == 1) {
-            cout << "There was (still) nobody to talk to.\n";
+            cout << "There was nobody to talk to.\n";
         }
         
         else if (depth == 2) {
             cout << "The sound stopped. You wait a few seconds and it starts again.\nMaybe you should talk louder?\n";
+        }
+    }
+    
+    else if (level_3_Input == "yell" || level_3_Input == "shout" || level_3_Input == "scream") {
+        
+        if (depth == 0) {
+            cout << "Your voice echoes throughout the cave with no answer.\n";
+        }
+        
+        else if (depth == 1) {
+            cout << "Your voice echoes throughout the cave with no answer.\n";
+        }
+        
+        else if (depth == 2) {
+            cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
+            depth = 0;
+            isAwake = true;
         }
     }
     
