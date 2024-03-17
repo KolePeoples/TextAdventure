@@ -263,6 +263,7 @@ int Level3(string input, int location) {
             cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
             depth = 0;
             isAwake = true;
+            answerRiddle(Troll);
         }
     }
     
