@@ -115,6 +115,7 @@ int Level2(string input, int location) {
         cout << "It sounded... like a garden\n";
     }
     
+    //Find a way around the repeat output for when player types smell
     else if (level_2_Input == "take" || level_2_Input == "pick" || level_2_Input == "pick flower" || level_2_Input == "smell plant" || level_2_Input == "smell flower" || level_2_Input == "lick" || level_2_Input == "taste" || level_2_Input == "smell") {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
         cout << "A massive winged lion with the head of a deformed man materializes across the room.\n";
@@ -131,6 +132,7 @@ int Level2(string input, int location) {
         }
         else {
             cout << "\"Wrong! Now you DIE!\"\n";
+            sphinxArrive = false; //Resetting the bool for when the player comes back
             return 0;
         }
     }
@@ -273,6 +275,11 @@ int Level3(string input, int location) {
                 }
                 else
                     return ++currentLoc;
+            }
+            
+            else {
+                cout << "I eat you now.\n";
+                return 0;
             }
         }
     }
