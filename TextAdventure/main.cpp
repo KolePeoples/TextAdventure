@@ -99,8 +99,16 @@ int Level2(string input, int location) {
     
     //Discovery Logic
     if (level_2_Input == "look" || level_2_Input == "look around") {
+
+        
+        if (sphinxArrive == false) {
             cout << "You are in...\nA garden?? How are plants able to thrive here with no sunlight?.\n";
             cout << "There are several beautiful flowers and other flora about.\nStopping to smell the roses doesn't seem like a bad idea at the moment\n";
+        }
+        
+        if (sphinxArrive == true) {
+            cout << "A massive winged lion with the head of a deformed man stares at you, cause Kole doesn't have dialog yet.";
+        }
     }
     
     else if (level_2_Input == "hear" || level_2_Input == "listen") {
@@ -154,8 +162,7 @@ int Level3(string input, int location) {
     int currentLoc = location;
     static int depth = 0;
     static int lickCount = 0;
-    bool hasDisease = false;
-    bool isAwake = false;
+    static bool hasDisease = false;
     
     Monster Troll{"Troll","Me stronger than steel, but me full of holes. What it is?","a chain",3};
     
@@ -210,20 +217,17 @@ int Level3(string input, int location) {
         if (lickCount == 0) {
             cout << "You really shouldn't...\n";
             lickCount++;
-            cout << lickCount << endl;
         }
         
         else if (lickCount == 1) {
             cout << "You... Lick and taste everything you can get your nasty tongue on... Sicko\n";
             lickCount++;
-            cout << lickCount << endl;
         }
         
         else if (lickCount == 2) {
             cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
             hasDisease = true;
             lickCount++;
-            cout << lickCount << endl;
         }
         
         else if (lickCount > 2) {
@@ -261,14 +265,14 @@ int Level3(string input, int location) {
         else if (depth >= 2) {
             cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
             depth = 0;
-            isAwake = true;
             cout << "A voice came from behind you and echoed through the cave: \"Tiny human does not belong.\nTiny human must leave.\"Solve riddle or die.\n";
             if(answerRiddle(Troll) == 1) {
                 if (hasDisease == true) {
-                    return currentLoc + 2;
+                    currentLoc += 2;
+                    return currentLoc;
                 }
                 else
-                    return currentLoc++;
+                    return ++currentLoc;
             }
         }
     }
