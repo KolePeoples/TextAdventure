@@ -170,7 +170,7 @@ int Level3(string input, int location) {
             cout << "The crimson light from the crystals has become a distant glow behind you.\nIt's much harder to see.\nNot like there is much to see in a cave anyway.\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "You can't see your own hand in front of you face.\nYou'll have to rely on other senses.\n";
         }
     }
@@ -185,7 +185,7 @@ int Level3(string input, int location) {
             cout << "There is a faint grumling coming from deeper in the cave...\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "It almost sounds like someone is snoring.\n";
         }
     }
@@ -200,7 +200,7 @@ int Level3(string input, int location) {
             cout << "The smell is getting stronger...\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "Your nose is burning, the source of the smell is right in front of you.\n";
         }
     }
@@ -243,7 +243,7 @@ int Level3(string input, int location) {
             cout << "There was nobody to talk to.\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "The sound stopped. You wait a few seconds and it starts again.\nMaybe you should talk louder?\n";
         }
     }
@@ -258,13 +258,17 @@ int Level3(string input, int location) {
             cout << "Your voice echoes throughout the cave with no answer.\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
             depth = 0;
             isAwake = true;
             cout << "A voice came from behind you and echoed through the cave: \"Tiny human does not belong.\nTiny human must leave.\"Solve riddle or die.\n";
             if(answerRiddle(Troll) == 1) {
-                cout << "Works";
+                if (hasDisease == true) {
+                    return currentLoc + 2;
+                }
+                else
+                    return currentLoc++;
             }
         }
     }
@@ -279,13 +283,14 @@ int Level3(string input, int location) {
             cout << "The walls don't feel any different. The crystals are behind you and thus out of reach.\n";
         }
         
-        else if (depth == 2) {
+        else if (depth >= 2) {
             cout << "You touch the wall impeding your path. It has some give, but it's too heavy to move ";
         }
     }
     
    //Cave Expolration Logic
     else if (level_3_Input == "go further" || level_3_Input == "go deeper" || level_3_Input == "spelunk"|| level_3_Input == "explore cave" || level_3_Input == "explore") {
+        //Increment depth for each explore command
         depth++;
         
         if (depth == 1) {
@@ -319,12 +324,11 @@ int Level4(string input, int location) {
     
     string level_4_input = input;
     bool hasFlower = true;
-    bool isSick = true;
     int currentLoc = location;
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << "You are in a small, dank cell with a rusted iron door.\n";
+         cout << "You are in a small, dank cell with a rusted iron door and you feel fine.\n";
     }
     
     return currentLoc;
@@ -340,7 +344,7 @@ int Level5(string input, int location) {
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << "You are in a small, dank cell with a rusted iron door.\n";
+         cout << "You are in a small, dank cell with a rusted iron door and you are very sick.\n";
     }
     
     return currentLoc;
