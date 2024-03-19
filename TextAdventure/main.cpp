@@ -262,7 +262,7 @@ int Level3(string input, int location) {
             cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
             depth = 0;
             isAwake = true;
-            cout << ""; //Troll intro/dialogue
+            cout << "A voice came from behind you and echoed through the cave: \"Tiny human does not belong.\nTiny human must leave.\"Solve riddle or die.\n";
             if(answerRiddle(Troll) == 1) {
                 cout << "Works";
             }
