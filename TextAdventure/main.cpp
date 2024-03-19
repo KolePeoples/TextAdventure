@@ -182,7 +182,7 @@ int Level3(string input, int location) {
         }
         
         else if (depth == 1) {
-            cout << "There is a faint grumling coming frm deeper in the cave...\n";
+            cout << "There is a faint grumling coming from deeper in the cave...\n";
         }
         
         else if (depth == 2) {
@@ -229,7 +229,6 @@ int Level3(string input, int location) {
         else if (lickCount > 2) {
             lickCount++;
             cout << "You have " << lickCount <<" stacks of hepatitus.\n";
-            cout << lickCount << endl;
         }
         
     }
@@ -263,6 +262,7 @@ int Level3(string input, int location) {
             cout << "The sound stopped. The wall begins to... move.\nIn a panic, you turn around and run until you are bathed in the crimson glow of cave crystals again.\n";
             depth = 0;
             isAwake = true;
+            cout << ""; //Troll intro/dialogue
             if(answerRiddle(Troll) == 1) {
                 cout << "Works";
             }
