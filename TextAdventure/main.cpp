@@ -132,7 +132,7 @@ int Level2(string input, int location) {
         }
         else {
             cout << "\"Wrong! Now you DIE!\"\n";
-            sphinxArrive = false; //Resetting the bool for when the player comes back more test mome
+            sphinxArrive = false; //Resetting the bool for when the player comes back more test mome nnj
             return 0;
         }
     }
