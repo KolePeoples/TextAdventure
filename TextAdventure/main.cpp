@@ -180,7 +180,7 @@ int Level3(string input, int location) {
         }
         
         else if (depth >= 2) {
-            cout << "You can't see your own hand in front of you face.\nYou'll have to rely on other senses.\n";
+            cout << "You can't see your own hand in front of you face.\nYou'll have to rely on your other senses.\n";
         }
     }
     
