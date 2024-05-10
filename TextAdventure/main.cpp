@@ -336,10 +336,10 @@ int Level4(string input, int location) {
     string level_4_input = input;
     bool hasFlower = true;
     int currentLoc = location;
-    Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek treasure","",4};
+    Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek a treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << "You are in a small, dank cell with a rusted iron door and you feel fine.\n";
+         cout << ".\n";
     }
     
     return currentLoc;
