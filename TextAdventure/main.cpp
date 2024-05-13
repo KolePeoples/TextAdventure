@@ -350,6 +350,10 @@ int Level4(string input, int location) {
          cout << "You hear Leshys cabin.\n";
     }
     
+    else if (input == "talk" || input == "speak") {
+         cout << "You speak to Leshy. He wants your flower.\n";
+    }
+    
     return currentLoc;
 }
 
