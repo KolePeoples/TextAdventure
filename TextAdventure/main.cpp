@@ -339,7 +339,15 @@ int Level4(string input, int location) {
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek a treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << ".\n";
+         cout << "You are in Leshys cabin.\n";
+    }
+    
+    else if (input == "smell" || input == "sniff") {
+         cout << "You smell Leshys cabin.\n";
+    }
+    
+    else if (input == "hear" || input == "listen") {
+         cout << "You hear Leshys cabin.\n";
     }
     
     return currentLoc;
