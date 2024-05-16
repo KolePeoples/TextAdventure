@@ -354,6 +354,10 @@ int Level4(string input, int location) {
          cout << "You speak to Leshy. He wants your flower.\n";
     }
     
+    else if (input == "taste" || input == "lick") {
+        cout << "You can't lick Leshy. Don't be rude.";
+    }
+    
     return currentLoc;
 }
 
