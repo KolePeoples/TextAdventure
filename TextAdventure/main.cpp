@@ -339,15 +339,15 @@ int Level4(string input, int location) {
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek a treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << "You are in a derelict cabin. Moss and vines creep from panels on the floor and walls.\n";
+         cout << "You are in a derelict cabin. Moss and vines creep from panels on the floor and walls.\nA table occupies the middle of the cabin.";
     }
     
     else if (input == "smell" || input == "sniff") {
-         cout << "It acutally smells wonderful in here. Your nose is blessed with smells of Jasmine, Honeysuckle, and Gardenia.\n";
+         cout << "Despite the cabin's appearance, it smells wonderful in here. Your nose is blessed with smells of jasmine, honeysuckle, and gardenia.\n";
     }
     
     else if (input == "hear" || input == "listen") {
-         cout << "You hear Leshys cabin.\n";
+         cout << "You hear nothing but the creaking of the cabin and the crackle of candles on the table.\n";
     }
     
     else if (input == "talk" || input == "speak") {
