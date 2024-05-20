@@ -343,7 +343,7 @@ int Level4(string input, int location) {
     }
     
     else if (input == "smell" || input == "sniff") {
-         cout << "You smell Leshys cabin.\n";
+         cout << "It acutally smells wonderful in here. Your nose is blessed with smells of Jasmine, Honeysuckle, and Gardenia.\n";
     }
     
     else if (input == "hear" || input == "listen") {
