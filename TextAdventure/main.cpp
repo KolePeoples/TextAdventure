@@ -351,11 +351,19 @@ int Level4(string input, int location) {
     }
     
     else if (input == "talk" || input == "speak") {
-         cout << "You speak to Leshy. He wants your flower.\n";
+         cout << "You call out to anyone who might hear, but get no response.\n";
     }
     
     else if (input == "taste" || input == "lick") {
-        cout << "You can't lick Leshy. Don't be rude.";
+        cout << "There is nothing to taste.";
+    }
+    
+    else if (input == "touch" || input == "feel") {
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.";
+    }
+    
+    else if (input == "touch" || input == "feel") {
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.";
     }
     
     return currentLoc;
