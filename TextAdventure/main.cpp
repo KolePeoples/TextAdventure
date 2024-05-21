@@ -115,7 +115,7 @@ int Level2(string input, int location) {
         cout << "It sounded... like a garden\n";
     }
     
-    //Find a way around the repeat output for when player types smells test.
+    //Remove smell here and add separate functionality for it. Smell is too vague and players may type it trying to smell the area
     else if (level_2_Input == "take" || level_2_Input == "pick" || level_2_Input == "pick flower" || level_2_Input == "smell plant" || level_2_Input == "smell flower" || level_2_Input == "lick" || level_2_Input == "taste" || level_2_Input == "smell") {
         cout << "A terrifying voice booms: \"WHO DARES DISTURB MY GARDEN??\"\n";
         cout << "A massive winged lion with the head of a deformed man materializes across the room.\n";
@@ -295,7 +295,7 @@ int Level3(string input, int location) {
         }
         
         else if (depth >= 2) {
-            cout << "You touch the wall impeding your path. It has some give, but it's too heavy to move ";
+            cout << "You touch the wall impeding your path. It has some give, but it's too heavy to move.\n";
         }
     }
     
@@ -339,7 +339,7 @@ int Level4(string input, int location) {
     Monster Leshen{"Leshen","I am not like the others. I have no riddle. Instead, I seek a treasure","",4};
     
     if (input == "look" || input == "look around") {
-         cout << "You are in a derelict cabin. Moss and vines creep from panels on the floor and walls, as well as from the only door you can see.\nA table occupies the middle of the cabin.";
+         cout << "You are in a derelict cabin. Moss and vines creep from panels on the floor and walls,\nas well as from the only door you can see.\nA table occupies the middle of the cabin.\n";
     }
     
     else if (input == "smell" || input == "sniff") {
@@ -355,15 +355,15 @@ int Level4(string input, int location) {
     }
     
     else if (input == "taste" || input == "lick") {
-        cout << "There is nothing to taste.";
+        cout << "There is nothing to taste.\n";
     }
     
     else if (input == "touch" || input == "feel") {
-        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.";
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.\n";
     }
     
-    else if (input == "touch" || input == "feel") {
-        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.";
+    else if (input == "pull vines" || input == "pull") {
+        cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
     }
     
     return currentLoc;
@@ -380,23 +380,31 @@ int Level5(string input, int location) {
     
     
     if (input == "look" || input == "look around") {
-         cout << "You are in Leshys cabin.\n";
+         cout << "You are in a derelict cabin. Moss and vines creep from panels on the floor and walls,/nas well as from the only door you can see.\nA table occupies the middle of the cabin.\n";
     }
     
     else if (input == "smell" || input == "sniff") {
-         cout << "You smell Leshys cabin.\n";
+         cout << "You feel congested and are having a hard time smelling anything.\n";
     }
     
     else if (input == "hear" || input == "listen") {
-         cout << "You hear Leshys cabin.\n";
+         cout << "You hear nothing but the creaking of the cabin and the crackle of candles on the table.\n";
     }
     
     else if (input == "talk" || input == "speak") {
-         cout << "You speak to Leshy. He wants your flower.\n";
+         cout << "You call out to anyone who might hear, but get no response.\n";
     }
     
     else if (input == "taste" || input == "lick") {
-        cout << "Clearly you didn't learn anything from the last time you licked stuff. Regardless, there is nothing you can lick or taste.";
+        cout << "Did you learn nothing from last time?\n";
+    }
+    
+    else if (input == "touch" || input == "feel") {
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.\n";
+    }
+    
+    else if (input == "pull vines" || input == "pull") {
+        cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
     }
     
     return currentLoc;
