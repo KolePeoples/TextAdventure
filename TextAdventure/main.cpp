@@ -366,6 +366,14 @@ int Level4(string input, int location) {
         cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
     }
     
+    else if (input == "help") {
+         cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+    }
+    
+    else {
+         cout << "I don't understand that command.\n";
+    }
+    
     return currentLoc;
 }
 
@@ -405,6 +413,14 @@ int Level5(string input, int location) {
     
     else if (input == "pull vines" || input == "pull") {
         cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
+    }
+    
+    else if (input == "help") {
+         cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
+    }
+    
+    else {
+         cout << "I don't understand that command.\n";
     }
     
     return currentLoc;
