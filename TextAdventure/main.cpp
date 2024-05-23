@@ -359,10 +359,10 @@ int Level4(string input, int location) {
     }
     
     else if (input == "touch" || input == "feel") {
-        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.\n";
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull the vines away from the door?\n";
     }
     
-    else if (input == "pull vines" || input == "pull") {
+    else if (input == "pull vines") {
         cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
     }
     
@@ -408,7 +408,7 @@ int Level5(string input, int location) {
     }
     
     else if (input == "touch" || input == "feel") {
-        cout << "Some of the vines around the door have some give to them. Maybe you can pull them away from the door.\n";
+        cout << "Some of the vines around the door have some give to them. Maybe you can pull the vines away from the door?\n";
     }
     
     else if (input == "pull vines" || input == "pull") {
