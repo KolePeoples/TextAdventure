@@ -226,7 +226,7 @@ int Level3(string input, int location) {
             lickCount++;
         }
         
-        else if (lickCount == 2) {
+        else if (lickCount == 2) { //Maybe change to disease to one that makes sense for licking a cave wall. Like Histoplasmosis
             cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
             hasDisease = true;
             lickCount++;
@@ -343,7 +343,7 @@ int Level4(string input, int location) {
     }
     
     else if (input == "smell" || input == "sniff") {
-         cout << "Despite the cabin's appearance, it smells wonderful in here. Your nose is blessed with smells of jasmine, honeysuckle, and gardenia.\n";
+         cout << "Despite the cabin's appearance, it smells wonderful in here.\nYour nose is blessed with smells of jasmine, honeysuckle, and gardenia.\n";
     }
     
     else if (input == "hear" || input == "listen") {
@@ -373,7 +373,6 @@ int Level4(string input, int location) {
     else {
          cout << "I don't understand that command.\n";
     }
-    
     return currentLoc;
 }
 
