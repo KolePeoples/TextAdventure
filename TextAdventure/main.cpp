@@ -226,7 +226,7 @@ int Level3(string input, int location) {
             lickCount++;
         }
         
-        else if (lickCount == 2) { //Maybe change to disease to one that makes sense for licking a cave wall. Like Histoplasmosiss
+        else if (lickCount == 2) { //Maybe change to disease to one that makes sense for licking a cave wall. Like Histoplasmosis
             cout << "Why are you still licking things!? Whatever. You have hepatitus now.\n";
             hasDisease = true;
             lickCount++;
