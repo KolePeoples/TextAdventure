@@ -366,6 +366,10 @@ int Level4(string input, int location) {
         cout << "The vines give way with surprising ease, revealing the only door in the cabin.\n";
     }
     
+    else if (input == "speak" || input == "talk") { //Last edit here on 10/09/2024. Implementing dialogue for Leshen
+        cout << "I seek a treasue, without giving me something precious, I will not let you leave.\n";
+    }
+    
     else if (input == "help") {
          cout << "Type all commands in LOWERCASE. You will never need more than one or two word commands.\n";
     }
